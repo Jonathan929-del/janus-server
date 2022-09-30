@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/:id', async (req, res) => {
     try {
         const propertyId = req.params.id;
-        const buildings = await Buildings.find({propertyCode:propertyId});
+        const buildings = await Buildings.find({property_code:propertyId});
         res.status(200).json(buildings);
     } catch (err) {
         res.status(500).json(err);
