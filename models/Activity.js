@@ -17,9 +17,9 @@ const ActivitySchema = mongoose.Schema({
     material_coast:{type:Number},
     longitude:{type:String},
     latitude:{type:String},
-    building_code:{type:Number},
-    property_code:{type:Number},
-    component_code:{type:String},
+    building:{type:Number},
+    property:{type:Number},
+    component:{type:String},
     unique_index_component:{type:String},
     changed_by:{type:String},
     change_date:{type:Number}
