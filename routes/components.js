@@ -16,5 +16,17 @@ router.get('/:id', async (req, res) => {
 });
 
 
+// Fetching components by component code
+router.get('/component/:id', async (req, res) => {
+    try {
+        const componentId = req.params.id;
+        const component = await Component.findOne({component_code:componentId});
+        res.status(200).json(component);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
