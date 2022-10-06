@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 // Schema
 const ActivitySchema = mongoose.Schema({
-    date:{type:Number},
+    date:{type:Date},
     user:{type:String},
     description:{type:String},
     cause:{type:Number},
