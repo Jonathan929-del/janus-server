@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import usersRouter from './routes/users.js';
 import buildingsRouter from './routes/buildings.js';
 import componentsRouter from './routes/components.js';
 import propertiesRouter from './routes/properties.js';
@@ -26,9 +27,7 @@ app.use('/buildings', buildingsRouter);
 app.use('/properties', propertiesRouter);
 app.use('/components', componentsRouter);
 app.use('/activities', activitiesRouter);
-app.get('/', (req, res) => {
-    res.status(200).json('Connected to the sever.');
-});
+app.use('/users', usersRouter);
 
 
 // Database Connect
