@@ -7,7 +7,7 @@ const ActivitySchema = mongoose.Schema({
     date:{type:Date},
     user:{type:String},
     description:{type:String},
-    activity:{type:Number},
+    activity:{type:String},
     work_order:{type:String},
     time:{type:String},
     article_number:{type:Number},
