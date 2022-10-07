@@ -59,5 +59,15 @@ router.post('/', async (req, res) => {
 });
 
 
+router.get('/the-activity', async (req, res) => {
+    try {
+        const activities = await Activity.find({component:'CE4983'});
+        res.status(200).json(activities);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
