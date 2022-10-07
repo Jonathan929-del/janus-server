@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import Activity from './models/Activity.js';
 import usersRouter from './routes/users.js';
 import buildingsRouter from './routes/buildings.js';
 import componentsRouter from './routes/components.js';
@@ -28,6 +29,14 @@ app.use('/properties', propertiesRouter);
 app.use('/components', componentsRouter);
 app.use('/activities', activitiesRouter);
 app.use('/users', usersRouter);
+app.get('/', async (req, res) => {
+    try {
+        const activities = await Activity.find({component:'CE4983'});
+        res.status(200).json(activities);
+    } catch (err) {
+        res.status(200).json(err.message)
+    }
+});
 
 
 // Database Connect
