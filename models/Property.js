@@ -42,8 +42,8 @@ const PropertySchema = mongoose.Schema({
     contract_excludes:{type:Number, required:true},
     contract_access_to_property:{type:String},
     contract_code:{type:String},
-    latitude:{type:Number},
-    longitude:{type:Number},
+    latitude:{type:String},
+    longitude:{type:String},
     changed_by:{type:String, required:true},
     change_date:{type:Number, required:true}
 });
