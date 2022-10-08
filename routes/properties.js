@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // Fetching property by id
 router.get('/:id', async (req, res) => {
     try {
-        const latitude = JSON.parse(req.params.id);
+        const latitude = req.params.id;
         const property = await Property.findOne({latitude});
         res.status(200).json(property);
     } catch (err) {
