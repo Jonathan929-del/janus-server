@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 
 
 // Fetching property by property code
-router.get('/:id', async (req, res) => {
+router.get('/property-code/:id', async (req, res) => {
     try {
         const property_code = req.params.id;
         const property = await Property.findOne({property_code});
