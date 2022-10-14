@@ -42,7 +42,7 @@ router.get('/property-code/:id', async (req, res) => {
 // Deleting property
 router.delete('/:id', async (req, res) => {
     try {
-        const property_code = req.params.property_code;
+        const property_code = req.params.id;
         await Property.deleteOne({property_code});
         res.status(200).json('Property deleted');
     } catch (err) {
