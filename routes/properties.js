@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const property_code = req.params.id;
-        const newProperty = await Property.findOneAndUpdate(property_code, req.body, {new:true});
+        const newProperty = await Property.findOneAndUpdate({property_code}, req.body, {new:true});
         res.status(200).json(newProperty);
     } catch (err) {
         res.status(500).json(err);
