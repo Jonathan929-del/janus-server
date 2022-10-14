@@ -39,5 +39,29 @@ router.get('/property-code/:id', async (req, res) => {
 });
 
 
+// Deleting property
+router.delete('/:id', async (req, res) => {
+    try {
+        const property_code = req.params.property_code;
+        await Property.deleteOne({property_code});
+        res.status(200).json('Property deleted');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+// Adding property
+router.post('/', async (req, res) => {
+    try {
+        const {property_code} = req.body;
+        await Property.create(property_code);
+        res.status(200).json('Property added');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
