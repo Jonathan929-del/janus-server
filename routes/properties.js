@@ -54,95 +54,20 @@ router.delete('/:id', async (req, res) => {
 // Adding property
 router.post('/', async (req, res) => {
     try {
-        const {
-            property_code,
-            legal_name,
-            name,
-            street_address,
-            zip_code,
-            postal_address,
-            district,
-            maintenance_area,
-            owners,
-            address_label,
-            administrative_area,
-            area_lawn,
-            area_plantation,
-            area_land,
-            area_park,
-            area_hard,
-            area_water,
-            area_parking,
-            built_percentage,
-            sum_area_bta,
-            sum_area_bra,
-            sum_area_loa,
-            sum_area_ova,
-            sum_area_heating,
-            sum_area_boa,
-            sum_area_bia,
-            sum_no_of_apartments,
-            listed_buildings,
-            municipal_sewage,
-            owned_property,
-            responsible_user,
-            contract_exist,
-            contract_includes,
-            contract_sum,
-            contract_sum_sqm,
-            contract_excludes,
-            contract_access_to_property,
-            contract_code,
-            latitude,
-            longitude,
-            changed_by,
-            change_date
-        } = req.body;
-        const property = await Property.create({
-            property_code,
-            legal_name,
-            name,
-            street_address,
-            zip_code,
-            postal_address,
-            district,
-            maintenance_area,
-            owners,
-            address_label,
-            administrative_area,
-            area_lawn,
-            area_plantation,
-            area_land,
-            area_park,
-            area_hard,
-            area_water,
-            area_parking,
-            built_percentage,
-            sum_area_bta,
-            sum_area_bra,
-            sum_area_loa,
-            sum_area_ova,
-            sum_area_heating,
-            sum_area_boa,
-            sum_area_bia,
-            sum_no_of_apartments,
-            listed_buildings,
-            municipal_sewage,
-            owned_property,
-            responsible_user,
-            contract_exist,
-            contract_includes,
-            contract_sum,
-            contract_sum_sqm,
-            contract_excludes,
-            contract_access_to_property,
-            contract_code,
-            latitude,
-            longitude,
-            changed_by,
-            change_date
-        });
+        const property = await Property.create(req.body);
         res.status(200).json(property);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+// Editing property
+router.put('/:id', async (req, res) => {
+    try {
+        const propertyId = req.params.id;
+        const newProperty = await Property.findByIdAndUpdate(propertyId, req.body, {new:true});
+        res.status(200).json(newProperty);
     } catch (err) {
         res.status(500).json(err);
     }
