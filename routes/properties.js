@@ -55,7 +55,7 @@ router.delete('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const {property_code} = req.body;
-        await Property.create(property_code);
+        await Property.create({property_code});
         res.status(200).json('Property added');
     } catch (err) {
         res.status(500).json(err);
