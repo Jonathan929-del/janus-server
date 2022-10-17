@@ -34,7 +34,7 @@ router.get('/property-id/:id', async (req, res) => {
         const property = await Property.findById(id);
         res.status(200).json(property);
     } catch (err) {
-        res.status(500).json(err.message);
+        res.status(500).json(err);
     }
 });
 
@@ -42,8 +42,8 @@ router.get('/property-id/:id', async (req, res) => {
 // Deleting property
 router.delete('/:id', async (req, res) => {
     try {
-        const property_code = req.params.id;
-        await Property.deleteOne({property_code});
+        const id = req.params.id;
+        await Property.findByIdAndDelete(id);
         res.status(200).json('Property deleted');
     } catch (err) {
         res.status(500).json(err);
