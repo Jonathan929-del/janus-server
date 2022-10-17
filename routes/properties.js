@@ -27,15 +27,14 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// Fetching property by property code
-router.get('/property-code/:id', async (req, res) => {
+// Fetching property by id
+router.get('/property-id/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const property_code = JSON.parse(id);
-        const property = await Property.findOne({property_code});
+        const property = await Property.findById(id);
         res.status(200).json(property);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
     }
 });
 
