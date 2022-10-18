@@ -52,5 +52,15 @@ router.put('/:id', async (req, res) => {
 });
 
 
+// Adding building
+router.post('/', async (req, res) => {
+    try {
+        const building = await Building.create(req.body);
+        res.status(201).json(building);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Export
 export default router;
