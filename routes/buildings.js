@@ -40,5 +40,17 @@ router.delete('/:id', async (req, res) => {
 });
 
 
+// Editing building
+router.put('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedBuilding = await Building.findByIdAndUpdate(id, req.body, {new:true});
+        res.status(200).json(updatedBuilding);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
