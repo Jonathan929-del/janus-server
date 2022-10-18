@@ -28,5 +28,17 @@ router.get('/building-id/:id', async (req, res) => {
 });
 
 
+// Delting building
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Building.findByIdAndDelete(id);
+        res.status(200).json('Building deleted');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
