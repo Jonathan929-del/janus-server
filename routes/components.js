@@ -29,7 +29,7 @@ router.get('/component/:id', async (req, res) => {
 
 
 // Fetching components by component id
-router.get('/component/component-id/:id', async (req, res) => {
+router.get('/component-id/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const component = await Component.findById(id);
