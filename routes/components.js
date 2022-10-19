@@ -45,7 +45,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         await Component.findByIdAndDelete(id);
-        res.json(200).json('Component deleted');
+        res.status(200).json('Component deleted');
     } catch (err) {
         res.status(500).json(err);
     }
