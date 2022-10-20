@@ -59,5 +59,17 @@ router.post('/', async (req, res) => {
 });
 
 
+// Deleting activity
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Activity.findByIdAndDelete(id);
+        res.status(200).json('Activity deleted');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
