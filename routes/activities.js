@@ -28,7 +28,7 @@ router.get('/activity/:id', async (req, res) => {
 });
 
 
-// Posting activity
+// Adding activity
 router.post('/', async (req, res) => {
     try {
         const activity = await Activity.create({
