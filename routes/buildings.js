@@ -28,6 +28,18 @@ router.get('/building-id/:id', async (req, res) => {
 });
 
 
+// Fetching building by builing code
+router.get('/building-code/:id', async (req, res) => {
+    try {
+        const id  = req.params.id;
+        const building = await Building.findOne({building_code:id});
+        res.status(200).json(building);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Delting building
 router.delete('/:id', async (req, res) => {
     try {
