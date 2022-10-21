@@ -74,5 +74,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+// Fetching all buildings
+router.get('/', async (req, res) => {
+    try {
+        const buildings = await Building.find();
+        res.status(200).json(buildings);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Export
 export default router;
