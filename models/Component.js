@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 // Schema
 const ComponentSchema = mongoose.Schema({
-    component_code:{type:Numver, required:true},
+    component_code:{type:Number, required:true},
     owners:{type:Number, required:true},
     name:{type:String, required:true},
     other_text:{type:String},
