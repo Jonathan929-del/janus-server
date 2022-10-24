@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 // Schema
 const BuildingSchema = mongoose.Schema({
-    building_code:{type:Number},
+    building_code:{type:String},
     name:{type:String},
     street_address:{type:String},
     construction_year:{type:String},

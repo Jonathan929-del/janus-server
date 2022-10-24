@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 // Schema
 const PropertySchema = mongoose.Schema({
-    property_code:{type:Number},
+    property_code:{type:String},
     legal_name:{type:String},
     name:{type:String},
     street_address:{type:String},
