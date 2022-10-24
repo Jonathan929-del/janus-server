@@ -4,14 +4,14 @@ import Building from '../models/Building.js';
 const router = express.Router();
 
 
-// Fetching buildings by property id
+// Fetching buildings by property code
 router.get('/:id', async (req, res) => {
     try {
         const propertyId = req.params.id;
         const buildings = await Building.find({property_code:propertyId});
         res.status(200).json(buildings);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
     }
 });
 

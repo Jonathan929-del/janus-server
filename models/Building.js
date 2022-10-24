@@ -37,7 +37,7 @@ const BuildingSchema = mongoose.Schema({
     miscellaneous:{type:String},
     u_elevator:{type:String},
     responsible_user:{type:String},
-    property_code:{type:Number},
+    property_code:{type:String},
     latitude:{type:String},
     longitude:{type:String},
     changed_by:{type:String},
