@@ -10,6 +10,7 @@ import buildingsRouter from './routes/buildings.js';
 import componentsRouter from './routes/components.js';
 import propertiesRouter from './routes/properties.js';
 import activitiesRouter from './routes/activities.js';
+import notificationsRouter from './routes/notifications.js';
 
 
 // Middleware
@@ -27,6 +28,7 @@ app.use('/buildings', buildingsRouter);
 app.use('/properties', propertiesRouter);
 app.use('/components', componentsRouter);
 app.use('/activities', activitiesRouter);
+app.use('/notifications', notificationsRouter);
 app.use('/users', usersRouter);
 
 
