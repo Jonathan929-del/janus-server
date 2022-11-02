@@ -52,12 +52,24 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-// Editing component
+// Editing component by id
 router.put('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedComponent = await Component.findByIdAndUpdate(id, req.body, {new:true});
         res.status(200).json(updatedComponent);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+// Editing component by component code
+router.put('/component-code/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Component.findOneAndUpdate({component_code:id}, req.body, {new:true});
+        res.status(200).json('Component updated');
     } catch (err) {
         res.status(500).json(err);
     }
