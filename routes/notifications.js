@@ -4,6 +4,7 @@ const router = express.Router();
 import Component from '../models/Component.js';
 import Notification from '../models/Notification.js';
 
+
 // Fetching components with notifications component codes
 router.get('/', async (req, res) => {
     try {
@@ -16,6 +17,19 @@ router.get('/', async (req, res) => {
         res.status(500).json(err.message);
     }
 });
+
+
+// Deleting notification
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Notification.findByIdAndDelete(id);
+        res.status(200).json('Notification deleted');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 // Export
 export default router;
