@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         const components = await Promise.all(allNotifications.map(notification => {
             return Component.find({component_code:notification.component_code});
         }));
-        res.status(200).json(components);
+        res.status(200).json({components, allNotifications});
     } catch (err) {
         res.status(500).json(err.message);
     }
