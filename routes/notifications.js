@@ -8,11 +8,14 @@ import Notification from '../models/Notification.js';
 // Fetching components with notifications component codes
 router.get('/', async (req, res) => {
     try {
-        const allNotifications = await Notification.find();
-        const components = await Promise.all(allNotifications.map(notification => {
+        const notifications = await Notification.find();
+        const components = await Promise.all(notifications.map(notification => {
             return Component.find({component_code:notification.component_code});
         }));
-        res.status(200).json({components, allNotifications});
+        const notificationsIds = await Promise.all(notifications.map(notification => {
+            return notification._id;
+        }));
+        res.status(200).json({components, notificationsIds});
     } catch (err) {
         res.status(500).json(err.message);
     }
