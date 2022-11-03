@@ -24,7 +24,7 @@ const ComponentSchema = mongoose.Schema({
     attendance_latest_date:{type:String},
     attendance_interval:{type:String},
     attendace_next_date:{type:Number},
-    maintenance_latest_date:{type:Number},
+    maintenance_latest_date:{type:String},
     maintenance_interval:{type:String},
     maintenance_next_date:{type:String},
     instruction_text:{type:String},
