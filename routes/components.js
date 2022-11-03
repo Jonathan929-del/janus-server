@@ -68,8 +68,8 @@ router.put('/:id', async (req, res) => {
 router.put('/component-code/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        await Component.findOneAndUpdate({component_code:id}, req.body, {new:true});
-        res.status(200).json('Component updated');
+        const updatedComponent = await Component.findOneAndUpdate({component_code:id}, req.body, {new:true});
+        res.status(200).json(updatedComponent);
     } catch (err) {
         res.status(500).json(err);
     }
