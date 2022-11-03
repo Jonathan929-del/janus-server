@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        await Notification.findByIdAndDelete(id);
+        await Notification.findOneAndDelete({component_code:id});
         res.status(200).json('Notification deleted');
     } catch (err) {
         res.status(500).json(err);
