@@ -4,6 +4,17 @@ import Component from '../models/Component.js';
 const router = express.Router();
 
 
+// Fetching all components
+router.get('/', async (req, res) => {
+    try {
+        const components = await Component.find();
+        res.status(200).json(components);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Fetching components by building id
 router.get('/:id', async (req, res) => {
     try {
