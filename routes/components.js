@@ -87,19 +87,5 @@ router.put('/component-code/:id', async (req, res) => {
 });
 
 
-// Fetching buildings with components codes
-router.get('/component-codes', async (req, res) => {
-    try {
-        // const ids = req.body.ids;
-        // const buildings = await Promise.all(
-        //     ids.map(id => Building.findOne({building_code:id}))
-        // );
-        res.status(200).json('test');
-    } catch (err) {
-        res.status(500).json(err.message);
-    }
-});
-
-
 // Export
 export default router;
