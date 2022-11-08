@@ -86,5 +86,19 @@ router.get('/', async (req, res) => {
 });
 
 
+// Fetching buildings with components codes
+router.get('/component-code', async (req, res) => {
+    try {
+        const ids = req.body.ids;
+        const buildings = await Promise.all(
+            ids.map(id => Building.findOne({building_code:id}))
+        );
+        res.status(200).json(buildings);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Export
 export default router;
