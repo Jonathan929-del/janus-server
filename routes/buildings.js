@@ -90,10 +90,10 @@ router.get('/', async (req, res) => {
 router.get('/component-code', async (req, res) => {
     try {
         const ids = req.body.ids;
-        const buildings = await Promise.all(
-            ids.map(id => Building.findOne({building_code:id}))
-        );
-        res.status(200).json(buildings);
+        // const buildings = await Promise.all(
+        //     ids.map(id => Building.findOne({building_code:id}))
+        // );
+        res.status(200).json(ids);
     } catch (err) {
         res.status(500).json(err);
     }
