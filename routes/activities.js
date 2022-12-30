@@ -50,7 +50,8 @@ router.post('/', async (req, res) => {
             component:req.body.component,
             unique_index_component:req.body.unique_index_component,
             changed_by:req.body.changed_by,
-            change_date:req.body.change_date
+            change_date:req.body.change_date,
+            img:req.body.img
         });
         res.status(201).json(activity);
     } catch (err) {
