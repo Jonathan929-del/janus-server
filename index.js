@@ -6,6 +6,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import usersRouter from './routes/users.js';
+import imagesRouter from './routes/images.js';
 import buildingsRouter from './routes/buildings.js';
 import componentsRouter from './routes/components.js';
 import propertiesRouter from './routes/properties.js';
@@ -24,12 +25,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 
 // Routes
+app.use('/users', usersRouter);
+app.use('/images', imagesRouter)
 app.use('/buildings', buildingsRouter);
 app.use('/properties', propertiesRouter);
 app.use('/components', componentsRouter);
 app.use('/activities', activitiesRouter);
 app.use('/notifications', notificationsRouter);
-app.use('/users', usersRouter);
 
 
 // Database Connect
