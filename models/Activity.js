@@ -23,7 +23,7 @@ const ActivitySchema = mongoose.Schema({
     unique_index_component:{type:String},
     changed_by:{type:String},
     change_date:{type:Number},
-    img:{type:Number}
+    img:{type:String}
 });
 
 
