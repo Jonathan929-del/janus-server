@@ -1,7 +1,7 @@
 // Imports
 import express from 'express';
 const router = express.Router();
-import cloudinaryV from '../utils/cloudinary';
+import cloudinaryV from '../utils/cloudinary.js';
 
 
 // Uploading image
