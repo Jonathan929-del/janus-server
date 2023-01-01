@@ -5,9 +5,9 @@ import cloudinary from 'cloudinary'
 // Configuration
 const cloudinaryV = cloudinary.v2;
 cloudinaryV.config({
-    cloud_name:'jobook',
-    api_key:'742411721618284',
-    api_secret:'1RfZIjvJkjOaXpZw4tjdselHenM'
+    cloud_name:'dzn4fecpr',
+    api_key:'319439128592477',
+    api_secret:'KMyvdnPOuudJuqiCBHlVHGavyHI'
 });
 
 

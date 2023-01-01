@@ -8,7 +8,7 @@ import cloudinaryV from '../utils/cloudinary.js';
 router.post('/', async (req, res) => {
     try {
         const fileStr = req.body.data;
-        const img = await cloudinaryV.uploader.upload(fileStr, {upload_preset:'janusimages', public_id:req.body.id});
+        const img = await cloudinaryV.uploader.upload(fileStr, {upload_preset:'janus_attendance', public_id:req.body.id});
         res.status(201).json(img);
     } catch (err) {
         res.status(500).json(err);
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const images = await cloudinaryV.search
-        .expression('folder:janus')
+        .expression('folder:janus_images')
         .sort_by('public_id', 'desc')
         .max_results(100)
         .execute();
